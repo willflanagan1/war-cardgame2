@@ -28,7 +28,7 @@ class GameMenu extends Component {
     render() {
         if (this.state.gameStarted) {
             return (
-                <Menu onClick={this.handleMenuClick} style={{backgroundColor:"darkgrey", borderStyle:'solid', borderWidth:10, borderColor:'white', fontWeight:'bold'}}>
+                <Menu collapsed="true" onClick={this.handleMenuClick} style={{backgroundColor:"darkgrey", borderStyle:'solid', borderWidth:10, borderColor:'white', fontWeight:'bold'}}>
                     <Menu.Item key="2">
                         <Link to="/home">End Game</Link>
                     </Menu.Item>
@@ -60,8 +60,11 @@ class GameNav extends Component {
     render() {
         return (
             <div>
-                <Sider><GameMenu /></Sider>
-            </div >
+                <Sider
+                breakpoint="md"
+                collapsedWidth="0"
+                ><GameMenu /></Sider>
+            </div>
         )
     }
 }

@@ -293,55 +293,61 @@ class Game extends Component {
         //removes shuffle button if already shuffled
         if (this.state.shuffled == true) {
             return (
-                <div>
-                    <Row type="flex" align="top" gutter={[48, 16]} style={{
-                        textAlign: "center", marginLeft: 200,
-                        height: 200, marginTop: 100, color: 'white'
+                <div style={{ marginLeft: 40 }}>
+                    <Row type="flex" align="top" justify="center" gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} style={{
+                        textAlign: "center",
+                        height: "auto", color: 'white', width: "100%", marginTop: 50, 
                     }}>
-                        <Col span={12} >
+                        <Col span={12} style={{ maxWidth: 400 }} >
                             <strong style={{ fontSize: 20 }}>You:</strong>
-                            <div style={{ margin: 20 }}><img alt={userCardName} style={{ width: 220 }} src={userCardImagePath}></img></div>
+                            <div style={{marginTop:5, marginBottom: 5}}><img style={{ width: '90%' }} src={userCardImagePath}></img></div>
                             You have<strong> {this.state.userCards.length} </strong>cards left
                         </Col>
-                        <Col span={12}>
+                        <Col span={12} style={{ maxWidth: 400 }}>
                             <strong style={{ fontSize: 20 }}>Computer:</strong>
-                            <div style={{ margin: 20 }}><img alt={compCardName} style={{ width: 220 }} src={compCardImagePath}></img></div>
+                            <div style={{marginTop:5, marginBottom: 5}}><img style={{ width: '90%' }} src={compCardImagePath}></img></div>
                             Computer has<strong> {this.state.compCards.length} </strong>cards left
+                    </Col>
+                    </Row>
+                    <Row style="flex" align="top" style={{
+                        textAlign: "center", marginTop: 30, marginLeft: -40, height:400
+                    }}>
+                        <Col span={12}>
+                            <Button disabled style={{ float: "right", margin: 5 }} onClick={() => this.shuffle()}>Shuffle(once per game)</Button>
+                        </Col>
+                        <Col spane={12}>
+                            <Button style={{ float: "left", margin: 5 }} type="primary" onClick={() => this.handleEndHand(userCard, compCard)}>Next Hand<Icon type="right" /></Button>
                         </Col>
                     </Row>
-                    <Row align="top" style={{
-                        textAlign: "center", marginLeft: 240,
-                        height: 200, marginTop: 280
-                    }}>
-                        <Button type="primary" onClick={() => this.handleEndHand(userCard, compCard)}>Next Hand<Icon type="right" /></Button>
-                    </Row>
                 </div>
-
             )
         } else {
             return (
-                <div>
-                    <Row type="flex" align="top" gutter={[48, 16]} style={{
-                        textAlign: "center", marginLeft: 250,
-                        height: 200, marginTop: 100, color: 'white'
+                <div style={{ marginLeft: 40 }}>
+                    <Row type="flex" align="top" justify="center" gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} style={{
+                        textAlign: "center",
+                        height: "auto", color: 'white', width: "100%", marginTop: 50
                     }}>
-                        <Button style={{ marginLeft: -220, marginTop: 200 }} onClick={() => this.shuffle()}>Shuffle (One per game)</Button>
-                        <Col span={12} >
+                        <Col span={12} style={{ maxWidth: 400 }} >
                             <strong style={{ fontSize: 20 }}>You:</strong>
-                            <div style={{ margin: 20 }}><img style={{ width: 220 }} src={userCardImagePath}></img></div>
-                            You have<strong> {this.state.userCards.length} </strong>cards left
-                    </Col>
-                        <Col span={12}>
+                            <div style={{marginTop:5, marginBottom: 5}}><img style={{ width: '90%' }} src={userCardImagePath}></img></div>
+                            You have<strong> {this.state.userCards.length} </strong>cards
+                        </Col>
+                        <Col span={12} style={{ maxWidth: 400 }}>
                             <strong style={{ fontSize: 20 }}>Computer:</strong>
-                            <div style={{ margin: 20 }}><img style={{ width: 220 }} src={compCardImagePath}></img></div>
-                            Computer has<strong> {this.state.compCards.length} </strong>cards left
+                            <div style={{marginTop:5, marginBottom: 5}}><img style={{ width: '90%' }} src={compCardImagePath}></img></div>
+                            Computer has<strong> {this.state.compCards.length} </strong>cards
                     </Col>
                     </Row>
-                    <Row align="top" style={{
-                        textAlign: "center", marginLeft: 240,
-                        height: 200, marginTop: 280
+                    <Row style="flex" align="top" style={{
+                        textAlign: "center", marginTop: 30, marginLeft: -40, height:400
                     }}>
-                        <Button type="primary" onClick={() => this.handleEndHand(userCard, compCard)}>Next Hand<Icon type="right" /></Button>
+                        <Col span={12}>
+                            <Button style={{ float: "right", margin: 5 }} onClick={() => this.shuffle()}>Shuffle(once per game)</Button>
+                        </Col>
+                        <Col spane={12}>
+                            <Button style={{ float: "left", margin: 5 }} type="primary" onClick={() => this.handleEndHand(userCard, compCard)}>Next Hand<Icon type="right" /></Button>
+                        </Col>
                     </Row>
                 </div>
 
