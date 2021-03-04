@@ -301,12 +301,12 @@ class Game extends Component {
                         <Col span={12} style={{ maxWidth: 400 }} >
                             <strong style={{ fontSize: 20 }}>You:</strong>
                             <div style={{marginTop:5, marginBottom: 5}}><img style={{ width: '90%' }} src={userCardImagePath}></img></div>
-                            You have<strong> {this.state.userCards.length} </strong>cards left
+                            You have<strong> {this.state.userCards.length} </strong>cards
                         </Col>
                         <Col span={12} style={{ maxWidth: 400 }}>
                             <strong style={{ fontSize: 20 }}>Computer:</strong>
                             <div style={{marginTop:5, marginBottom: 5}}><img style={{ width: '90%' }} src={compCardImagePath}></img></div>
-                            Computer has<strong> {this.state.compCards.length} </strong>cards left
+                            Computer has<strong> {this.state.compCards.length} </strong>cards
                     </Col>
                     </Row>
                     <Row style="flex" align="top" style={{
