@@ -25,7 +25,7 @@ class Game extends Component {
     componentWillMount() {
         var array = DECKOFCARDS.slice();
         var shuffledArray = array.slice()
-        for (let i = array.length - 1; i > 0; i--) {
+        for (i = array.length - 1; i > 0; i--) {
             let j = Math.floor(Math.random() * (i + 1));
             [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
         }
@@ -66,11 +66,11 @@ class Game extends Component {
             var userValue = userCards[userCards.length - 1].value
             var compValue = compCards[index].value
         } else if (compCards[index] == undefined) {
-            var compValue = compCards[compCards.length - 1].value
-            var userValue = userCards[index].value
+            compValue = compCards[compCards.length - 1].value
+            userValue = userCards[index].value
         } else {
-            var userValue = userCards[index].value
-            var compValue = compCards[index].value
+            userValue = userCards[index].value
+            compValue = compCards[index].value
         }
         if (userValue > compValue) {
             winner = 'You'
@@ -124,8 +124,8 @@ class Game extends Component {
             }).join(', ')
             alert("You won the war and got these cards: " + removedCompCardsString)
         } else if (winner == 'Comp') {
-            var removedCompCards = []
-            var removedUserCards = []
+            removedCompCards = []
+            removedUserCards = []
             if (compCards.length < index) {
                 removedCompCards = compCards.slice();
                 compCards = []
@@ -153,7 +153,7 @@ class Game extends Component {
                 warIndex: 0,
                 turns: ++turns
             })
-            var tempCards = removedUserCards.slice()
+            tempCards = removedUserCards.slice()
             var removedUserCardsString = tempCards.map((card) => {
                 if (card.secondValue !== undefined) {
                     return card.secondValue + ' of ' + card.suit
@@ -191,8 +191,8 @@ class Game extends Component {
                 turns: ++turns
             })
         } else if (winner == 'Computer') {
-            var userRemoved = userCards.shift();
-            var compRemoved = compCards.shift();
+            userRemoved = userCards.shift();
+            compRemoved = compCards.shift();
             compCards.push(userRemoved)
             compCards.push(compRemoved)
             this.setState({
